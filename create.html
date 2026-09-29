@@ -118,7 +118,7 @@ body.factory-locked>main{filter:blur(8px);pointer-events:none;user-select:none}
 <option value="none">SEM MÚSICA</option>
 <option value="spotify">SPOTIFY — COLE O LINK</option>
 <option value="box">★ RENATO'S MUSIC BOX ★</option>
-<option value="file">ARQUIVO DE ÁUDIO — MP3/WAV</option>
+<option value="file"> — MP3/WAV</option>
 </select>
 <div class="v10-music-extra" id="v10SpotifyWrap"><input id="v10Music" placeholder="Cole aqui o link da música do Spotify"/>
 <div aria-live="polite" class="spotify-status" id="spotify-status"></div><small>Ex.: open.spotify.com/track/... ou open.spotify.com/intl-pt/track/...</small></div>
@@ -274,7 +274,7 @@ body.factory-locked>main{filter:blur(8px);pointer-events:none;user-select:none}
      if(!url){q("#v10Status").textContent="⚠ ESCOLHA UMA MÚSICA DA MUSIC BOX.";return}
      musicType="file";
    } else if(type==="file"){
-     if(!state.audio){q("#v10Status").textContent="⚠ ESCOLHA UM ARQUIVO DE ÁUDIO.";return}
+     if(!state.audio){q("#v10Status").textContent="⚠ ESCOLHA UM .";return}
      url=state.audio; musicName=q("#v10MusicFile").files?.[0]?.name||"audio.mp3";
    }
    const c={version:"renatinho-card-v17",id:name.toLowerCase().replace(/[^a-z0-9]+/g,"-")+"-"+Date.now().toString(36).slice(-5),nome:name,titulo:q("#v10Title").value.trim()||"FELIZ ANIVERSÁRIO",icon:themes[state.theme].hero,hint:"FRIEND CARD • "+state.theme.toUpperCase(),tipoDeAnimacao:q("#v10Anim").value,mensagem:msg,fotos:state.photos.map((data,i)=>({data,nome:"foto-"+(i+1)})),musica:url,musicaNome:musicName,cardConfig:{musica:{type:musicType,url,autoPlay:false},theme:state.theme,font:q("#v10Font").value,textColor:q("#v10TextColor").value,photoStyle:q("#v10PhotoStyle").value,emojis:state.emojis},status:"pending-admin-approval",createdAt:new Date().toISOString()};
