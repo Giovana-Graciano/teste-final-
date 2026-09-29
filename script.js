@@ -242,12 +242,12 @@ function loadOpened(){
 }
 function saveOpened(){localStorage.setItem("renatinho-opened-v9",JSON.stringify([...opened]));updateFinal()}
 function openFinal(){
-  initAudio();tone(260,.08);setTimeout(()=>tone(520,.08),80);setTimeout(()=>tone(880,.12),160);
-  currentCard=specialCard;stopMusic();
-  cardWindow.className="card-window anim-secret opening final-card";
-  $("#modalFile").textContent="RENATINHO_FINAL.EXE";
-  cardContent.style.color=specialCard.cardConfig?.textColor||"";cardContent.innerHTML=`<div class="final-card-hero"><div class="final-orbit">★</div><div><div class="tiny blink">★ AUTHOR DETECTED • ACCESS GRANTED ★</div><h3>${esc(specialCard.titulo)}</h3><div class="from">DE: ${esc(specialCard.nome)}</div></div></div><div class="msg">${esc(specialCard.mensagem)}</div><div class="final-signature">${esc(specialCard.assinatura||"Com amor, Giovana ♥")}<br><b>★ HAPPY BIRTHDAY, RENATINHO ★</b></div>`;
-  modal.classList.remove("hidden");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+  tone(260,.08);setTimeout(()=>tone(520,.08),80);setTimeout(()=>tone(880,.12),160);
+  const love=document.querySelector("#love-file");
+  if(love){
+    love.classList.remove("hidden");
+    love.scrollIntoView({behavior:"smooth",block:"start"});
+  }
 }
 
 loadCards();
